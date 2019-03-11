@@ -19,7 +19,7 @@ int holder = data [0];
 data [0] = data [random];
 data [random] = holder;
 //[3,9,2,1,5,6]
-return helper (data, 1, data.length -1);
+return helper (data, start, end);
 }
 public static int helper (int [] data, int start, int end){
     String d = "";
@@ -82,5 +82,15 @@ public static int helper (int [] data, int start, int end){
 
 return 0;
     }
+    /*return the value that is the kth smallest value of the array.
+ */
+ public static int quickselect(int []data, int k){
+     int a = partition (data, 1, data.length -1);
+     // when a = k, you are done.
+     if (k < a){
+
+     }
+
+ }
 
 }
