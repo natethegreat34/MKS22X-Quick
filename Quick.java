@@ -29,35 +29,34 @@ public static int helper (int [] data, int start, int end){
     System.out.println(d);
     System.out.println("s" + start);
         System.out.println("e" + end);
-    if (start != end){
+    while (start != end){
     //[3,9,2,1,5,6] s1 e5
         // [3,6,2,1,5,9] s1 e4
             // [3,5,2,1,6,9] s1 e3
                 // [3,1,2,5,6,9] s2 e3
                     // [3,1,2,5,6,9]
-    if (data [start] > data [0]){
+                        System.out.println("help");
+    if (data [start] >= data [0]){
         int holder = data [start];
         data [start] = data [end];
         data [end] = holder;
         end --;
     }
+
     // [3,6,2,1,5,9] s1 e4
         // [3,5,2,1,6,9] s1 e3
             // [3,1,2,5,6,9] s1 e3
                 // [3,1,2,5,6,9] s2 e3
                     // [3,1,2,5,6,9]
-    else {
         if (data [start] < data [0]){
             start ++;
-        }
+
     }
-        helper(data, start, end);
 }
     // [3,6,2,1,5,9] s1 e4
         // [3,5,2,1,6,9] s1 e3
             // [3,1,2,5,6,9] s2 e3
                 // [3,1,2,5,6,9] s3 e3
-    else{
         if (data [0] > data[start]){
             int holder = data [0];
             data [0] = data [start];
@@ -68,10 +67,12 @@ public static int helper (int [] data, int start, int end){
         }
         else{
             int holder = data [0];
+            if (start -1 >= 0){
             data [0] = data [start - 1];
             data [start - 1] = holder;
             System.out.print(start-1);
             System.out.println("hoo");
+        }
             return start-1;
         }
     }
@@ -80,17 +81,17 @@ public static int helper (int [] data, int start, int end){
                 // [3,1,2,5,6,9] s2 e3
                     // [2,1,3,5,6,9] s2
 
-return 0;
-    }
     /*return the value that is the kth smallest value of the array.
  */
- public static int quickselect(int []data, int k){
-     int a = partition (data, 1, data.length -1);
-     // when a = k, you are done.
-     if (k < a){
-
-     }
-
- }
+ // public static int quickselect(int []data, int k){
+ //     // helper? with start and end
+ //     int a = partition (data, 1, data.length -1);
+ //     // when a = k, you are done.
+ //     if (k < a){
+ //         //make a new array?
+ //
+ //     }
+ //
+ // }
 
 }
