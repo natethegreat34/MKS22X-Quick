@@ -9,45 +9,49 @@ public class Quick{
  *@return the index of the final position of the pivot element.
  */
 public static int partition (int [] data, int start, int end){
+    // start + 1 is where I start
     if (data.length == 1){
         return 0;
     }
     int random = (int)(Math.random() * (data.length - 1));
-    int holder = data [0];
-    data [0] = data [random];
+    int holder = data [start];
+    data [start] = data [random];
     data [random] = holder;
     return helper (data, start, end);
 }
 
 public static int helper (int [] data, int start, int end){
+    int o = start;
+    start ++;
+    // start at start
     while (start != end){
-        if (data [start] >= data [0]){
+        if (data [start] >= data [o]){
             int holder = data [start];
             data [start] = data [end];
             data [end] = holder;
             end --;
         }
         else{
-            if (data [start] < data [0]){
+            if (data [start] < data [o]){
             start ++;
             }
         }
     }
-    if (data [0] > data[start]){
-        int holder = data [0];
-        data [0] = data [start];
+    if (data [o] > data[start]){
+        int holder = data [o];
+        data [o] = data [start];
         data [start] = holder;
         return start;
     }
     else{
-        int holder = data [0];
-        if (start -1 >= 0){
-            data [0] = data [start - 1];
+        int holder = data [o];
+        if (start -1 >= o){
+            data [o] = data [start - 1];
             data [start - 1] = holder;
             return start - 1;
         }
         else{
-            return 0;
+            return o;
         }
     }
 }
