@@ -104,16 +104,34 @@ public static int helper (int [] data, int start, int end){
 
     /*return the value that is the kth smallest value of the array.
  */
- public static int quicksort(int []data, int lo, int hi){
-     // helper? with start and end
-     if (lo >= hi){
-         return;
-     }
-     int pivot = partition(data, lo, hi);
-     // when a = k, you are done.
-     quicksort(data, pivot + 1, hi);
-     quicksort(data, 0, pivot);
+ public static int quickselect(int[] data, int k){
+     int start = 0;
+     int end = data.length;
+     while (start != end){
+        int p = partition(data, start, end);
+        if (k - 1 == p){
+         return data [k - 1];
+        }
+        if (k - 1 > p){
+            start = p + 1;
+        }
+        if (k - 1 < p){
+            end = p - 1;
+        }
+  }
+  return data [k - 1];
+}
 
-     }
+ // public static int quicksort(int []data, int lo, int hi){
+ //     // helper? with start and end
+ //     if (lo >= hi){
+ //         return;
+ //     }
+ //     int pivot = partition(data, lo, hi);
+ //     // when a = k, you are done.
+ //     quicksort(data, pivot + 1, hi);
+ //     quicksort(data, 0, pivot);
+ //
+ //     }
 
  }
