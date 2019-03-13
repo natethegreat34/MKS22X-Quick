@@ -18,7 +18,9 @@ int random = (int)(Math.random() * (data.length - 1));
 int holder = data [0];
 data [0] = data [random];
 data [random] = holder;
+System.out.println(data [random] + "random");
 //[3,9,2,1,5,6]
+
 return helper (data, start, end);
 }
 public static int helper (int [] data, int start, int end){
@@ -35,7 +37,7 @@ public static int helper (int [] data, int start, int end){
             // [3,5,2,1,6,9] s1 e3
                 // [3,1,2,5,6,9] s2 e3
                     // [3,1,2,5,6,9]
-                        System.out.println("help");
+                        // System.out.println("help");
     if (data [start] >= data [0]){
         int holder = data [start];
         data [start] = data [end];
@@ -61,17 +63,27 @@ public static int helper (int [] data, int start, int end){
             int holder = data [0];
             data [0] = data [start];
             data [start] = holder;
-                        System.out.print(start);
-            System.out.println("woo");
+            d = "";
+            for (int x = 0; x < data.length; x ++){
+                d = d + ", " + data [x];
+            }
+            System.out.println(d);
             return start;
         }
         else{
+
             int holder = data [0];
             if (start -1 >= 0){
             data [0] = data [start - 1];
             data [start - 1] = holder;
-            System.out.print(start-1);
-            System.out.println("hoo");
+            d = "";
+            for (int x = 0; x < data.length; x ++){
+                d = d + ", " + data [x];
+            }
+            System.out.println(d);
+        }
+        else{
+            return 0;
         }
             return start-1;
         }
