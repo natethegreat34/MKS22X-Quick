@@ -32,6 +32,9 @@ public static int helper (int [] data, int start, int end){
     System.out.println("s" + start);
         System.out.println("e" + end);
     while (start != end){
+        System.out.println(start + "s");
+        System.out.println(end + "e");
+            System.out.println( "----------------");
     //[3,9,2,1,5,6] s1 e5
         // [3,6,2,1,5,9] s1 e4
             // [3,5,2,1,6,9] s1 e3
@@ -50,16 +53,20 @@ public static int helper (int [] data, int start, int end){
             // [3,1,2,5,6,9] s1 e3
                 // [3,1,2,5,6,9] s2 e3
                     // [3,1,2,5,6,9]
+    else{
         if (data [start] < data [0]){
             start ++;
 
     }
+}
 }
     // [3,6,2,1,5,9] s1 e4
         // [3,5,2,1,6,9] s1 e3
             // [3,1,2,5,6,9] s2 e3
                 // [3,1,2,5,6,9] s3 e3
         if (data [0] > data[start]){
+            System.out.println(start + "sf");
+            System.out.println(end + "ef");
             int holder = data [0];
             data [0] = data [start];
             data [start] = holder;
@@ -71,7 +78,8 @@ public static int helper (int [] data, int start, int end){
             return start;
         }
         else{
-
+            System.out.println(start + "sf");
+            System.out.println(end + "ef");
             int holder = data [0];
             if (start -1 >= 0){
             data [0] = data [start - 1];
@@ -85,9 +93,9 @@ public static int helper (int [] data, int start, int end){
         else{
             return 0;
         }
-            return start-1;
         }
-    }
+    return 0;
+}
         // [3,6,2,1,5,9] s1 e4
             // [3,5,2,1,6,9] s1 e3
                 // [3,1,2,5,6,9] s2 e3
