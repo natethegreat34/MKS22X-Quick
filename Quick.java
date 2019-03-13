@@ -96,6 +96,7 @@ public static int helper (int [] data, int start, int end){
             }
         }
 }
+
         // [3,6,2,1,5,9] s1 e4
             // [3,5,2,1,6,9] s1 e3
                 // [3,1,2,5,6,9] s2 e3
@@ -103,15 +104,16 @@ public static int helper (int [] data, int start, int end){
 
     /*return the value that is the kth smallest value of the array.
  */
- // public static int quickselect(int []data, int k){
- //     // helper? with start and end
- //     int a = partition (data, 1, data.length -1);
- //     // when a = k, you are done.
- //     if (k < a){
- //         //make a new array?
- //
- //     }
- //
- // }
+ public static int quicksort(int []data, int lo, int hi){
+     // helper? with start and end
+     if (lo >= hi){
+         return;
+     }
+     int pivot = partition(data, lo, hi);
+     // when a = k, you are done.
+     quicksort(data, pivot + 1, hi);
+     quicksort(data, 0, pivot);
 
-}
+     }
+
+ }
