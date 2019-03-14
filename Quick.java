@@ -59,6 +59,11 @@ public static int helper (int [] data, int start, int end){
     start ++;
     // start at start
     while (start != end){
+//         String d = "";
+// for (int x = 0; x < data.length; x ++){
+//     d = d + ", " + data [x];
+// }
+// System.out.println(d);
         if (data [start] > data [o]){
             int holder = data [start];
             data [start] = data [end];
@@ -100,21 +105,34 @@ public static int helper (int [] data, int start, int end){
     }
 }
  public static int quickselect(int[] data, int k){
+     if (k - 1 >= 0){
      int start = 0;
-     int end = data.length;
+     int end = data.length - 1;
      while (start != end){
+         int s = start;
+         int e = end;
         int p = partition(data, start, end);
         if (k - 1 == p){
          return data [k - 1];
         }
         if (k - 1 > p){
             start = p + 1;
+            end = e;
         }
         if (k - 1 < p){
             end = p - 1;
+            start = s;
         }
   }
   return data [k - 1];
+  }
+  int min = 0;
+  for (int y = 0; y < data.length; y ++){
+      if (data [min] < data [y]){
+          min = y;
+      }
+  }
+  return min;
 }
 
  // public static int quicksort(int []data, int lo, int hi){
