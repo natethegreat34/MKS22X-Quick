@@ -9,11 +9,45 @@ public class Quick{
  *@return the index of the final position of the pivot element.
  */
 public static int partition (int [] data, int start, int end){
+    int hi = end;
+    int lo = start;
+    int mi = (end - start + 1)/2;
+    int random = 0;
     // start + 1 is where I start
     if (data.length == 1){
         return 0;
     }
-    int random = (int)(Math.random() * (data.length - 1));
+    // int random = (int)(Math.random() * (data.length - 1));
+    if (data [lo] >= data [hi]){
+        if (data [lo] > data [mi]){
+            if (data [mi] > data [lo]){
+                random = mi;
+            }
+            else{
+                random = lo;
+            }
+        }
+    }
+    else if(data [hi] > data [lo]){
+        if (data [hi] > data [mi]){
+            if (data [mi] > data [lo]){
+                random = mi;
+            }
+            else{
+                random = lo;
+            }
+        }
+    }
+    else if(data [mi] >= data [hi]){
+        if (data [mi] > data [lo]){
+            if (data [hi] > data [lo]){
+                random = hi;
+            }
+            else{
+                random = lo;
+            }
+        }
+    }
     int holder = data [start];
     data [start] = data [random];
     data [random] = holder;
@@ -25,15 +59,25 @@ public static int helper (int [] data, int start, int end){
     start ++;
     // start at start
     while (start != end){
-        if (data [start] >= data [o]){
+        if (data [start] > data [o]){
             int holder = data [start];
             data [start] = data [end];
             data [end] = holder;
             end --;
         }
-        else{
-            if (data [start] < data [o]){
+        else if (data [start] < data [o]){
             start ++;
+            }
+        else if (data [start] == data [o]){
+            int r = (int)(Math.random() * (2));
+            if (r == 1){
+                int holder = data [start];
+                data [start] = data [end];
+                data [end] = holder;
+                end --;
+            }
+            else{
+                start ++;
             }
         }
     }
