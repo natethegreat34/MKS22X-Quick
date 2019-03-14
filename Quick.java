@@ -58,7 +58,7 @@ public static int helper (int [] data, int start, int end){
     int o = start;
     start ++;
     // start at start
-    while (start != end){
+    while (start < end){
 //         String d = "";
 // for (int x = 0; x < data.length; x ++){
 //     d = d + ", " + data [x];
@@ -86,7 +86,7 @@ public static int helper (int [] data, int start, int end){
             }
         }
     }
-    if (data [o] > data[start]){
+    if (data [o] >= data[start]){
         int holder = data [o];
         data [o] = data [start];
         data [start] = holder;
@@ -94,7 +94,7 @@ public static int helper (int [] data, int start, int end){
     }
     else{
         int holder = data [o];
-        if (start -1 >= o){
+        if (start -1 > o){
             data [o] = data [start - 1];
             data [start - 1] = holder;
             return start - 1;
@@ -105,7 +105,6 @@ public static int helper (int [] data, int start, int end){
     }
 }
  public static int quickselect(int[] data, int k){
-     if (k > 0){
      int start = 0;
      int end = data.length - 1;
      while (start != end){
@@ -125,26 +124,20 @@ public static int helper (int [] data, int start, int end){
         }
   }
   return data [k];
-  }
-  int min = 0;
-  for (int y = 0; y < data.length; y ++){
-      if (data [min] > data [y]){
-          min = y;
-      }
-  }
-  return min;
 }
 
- // public static int quicksort(int []data, int lo, int hi){
- //     // helper? with start and end
- //     if (lo >= hi){
- //         return;
- //     }
- //     int pivot = partition(data, lo, hi);
- //     // when a = k, you are done.
- //     quicksort(data, pivot + 1, hi);
- //     quicksort(data, 0, pivot);
- //
- //     }
+ public static void quicksort(int []data){
+     qh (data, 0, data.length-1);
+ }
+     // helper? with start and end
+ public static void qh(int []data, int lo, int hi){
+     if (lo < hi){
+     int pivot = partition(data, lo, hi);
+     // when a = k, you are done.
+     qh(data, pivot + 1, hi);
+     qh(data, lo, pivot);
+    }
+
+}
 
  }
