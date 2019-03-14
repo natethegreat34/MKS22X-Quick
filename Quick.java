@@ -105,30 +105,30 @@ public static int helper (int [] data, int start, int end){
     }
 }
  public static int quickselect(int[] data, int k){
-     if (k - 1 >= 0){
+     if (k > 0){
      int start = 0;
      int end = data.length - 1;
      while (start != end){
          int s = start;
          int e = end;
         int p = partition(data, start, end);
-        if (k - 1 == p){
-         return data [k - 1];
+        if (k == p){
+         return data [k];
         }
-        if (k - 1 > p){
+        if (k > p){
             start = p + 1;
             end = e;
         }
-        if (k - 1 < p){
+        if (k < p){
             end = p - 1;
             start = s;
         }
   }
-  return data [k - 1];
+  return data [k];
   }
   int min = 0;
   for (int y = 0; y < data.length; y ++){
-      if (data [min] < data [y]){
+      if (data [min] > data [y]){
           min = y;
       }
   }
