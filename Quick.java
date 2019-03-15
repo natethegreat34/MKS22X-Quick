@@ -9,28 +9,6 @@ public class Quick{
  *@return the index of the final position of the pivot element.
  */
 public static int partition (int [] data, int start, int end){
-    // pivot (Element to be placed at right position)
-//     int pivot = data [end];
-//
-//     int i = (start - 1);  // Index of smaller element
-//
-//     for (int j = start; j <= end- 1; j++)
-//     {
-//         // If current element is smaller than or
-//         // equal to pivot
-//         if (data [j] <= pivot)
-//         {
-//             i++;
-//             int holder = data [i];
-//             data [i] = data [j];
-//             data [j] = holder;   // increment index of smaller element
-//         }
-//     }
-//     int holder = data [i + 1];
-//     data [i + 1] = data [end];
-//     data [end] = holder;
-//     return (i + 1);
-// }
     int hi = end;
     int lo = start;
     int mi = (end - start + 1)/2;
@@ -39,7 +17,7 @@ public static int partition (int [] data, int start, int end){
     if (data.length == 1){
         return 0;
     }
-    // int random = (int)(Math.random() * (data.length - 1));
+    // find median of first, last, and middle term
     if (data [lo] >= data [hi] && data [lo] >= data [mi]){
             if (data [mi] >= data [lo]){
                 random = mi;
@@ -64,6 +42,7 @@ public static int partition (int [] data, int start, int end){
                 random = lo;
             }
         }
+        // switches median with first term
     int holder = data [start];
     data [start] = data [random];
     data [random] = holder;
@@ -71,20 +50,24 @@ public static int partition (int [] data, int start, int end){
 }
 
 public static int helper (int [] data, int start, int end){
+    // pivot is named and we begin partition
     int o = start;
     start ++;
     // start at start
     while (start < end){
+        // if value picked is greater than pivot switch with the number at the end index
         if (data [start] > data [o]){
             int holder = data [start];
             data [start] = data [end];
             data [end] = holder;
             end --;
         }
+        // if value picked is less than pivot just increase the start and keep going
         if (data [start] < data [o]){
             start ++;
             }
         else if (data [start] == data [o]){
+            // if equal, 50 50 chance of going in front or behind pivot
             int r = (int)(Math.random() * (2));
             // System.out.println("r" + r);
             if (r == 1){
@@ -98,6 +81,7 @@ public static int helper (int [] data, int start, int end){
             }
         }
     }
+    // places the pivot back
     if (data [o] >= data[start]){
         int holder = data [o];
         data [o] = data [start];
@@ -119,6 +103,7 @@ public static int helper (int [] data, int start, int end){
          int s = start;
          int e = end;
         int p = partition(data, start, end);
+        // how to adjust approach based on results from pratition
         if (k == p){
          return data [k];
         }
@@ -137,8 +122,8 @@ public static int helper (int [] data, int start, int end){
  public static void quicksort(int []data){
      qh (data, 0, data.length-1);
  }
-     // helper? with start and end
  public static void qh(int []data, int lo, int hi){
+     // ends when low = hi
      if (lo < hi){
      int pivot = partition(data, lo, hi);
      // when a = k, you are done.
