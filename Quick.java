@@ -9,6 +9,28 @@ public class Quick{
  *@return the index of the final position of the pivot element.
  */
 public static int partition (int [] data, int start, int end){
+    // pivot (Element to be placed at right position)
+//     int pivot = data [end];
+//
+//     int i = (start - 1);  // Index of smaller element
+//
+//     for (int j = start; j <= end- 1; j++)
+//     {
+//         // If current element is smaller than or
+//         // equal to pivot
+//         if (data [j] <= pivot)
+//         {
+//             i++;
+//             int holder = data [i];
+//             data [i] = data [j];
+//             data [j] = holder;   // increment index of smaller element
+//         }
+//     }
+//     int holder = data [i + 1];
+//     data [i + 1] = data [end];
+//     data [end] = holder;
+//     return (i + 1);
+// }
     int hi = end;
     int lo = start;
     int mi = (end - start + 1)/2;
