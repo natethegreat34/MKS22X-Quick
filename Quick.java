@@ -40,36 +40,30 @@ public static int partition (int [] data, int start, int end){
         return 0;
     }
     // int random = (int)(Math.random() * (data.length - 1));
-    if (data [lo] >= data [hi]){
-        if (data [lo] > data [mi]){
-            if (data [mi] > data [lo]){
+    if (data [lo] >= data [hi] && data [lo] >= data [mi]){
+            if (data [mi] >= data [lo]){
                 random = mi;
             }
             else{
                 random = lo;
             }
         }
-    }
-    else if(data [hi] > data [lo]){
-        if (data [hi] > data [mi]){
-            if (data [mi] > data [lo]){
+    if(data [hi] >= data [lo] && data [hi] >= data [mi]){
+            if (data [mi] >= data [lo]){
                 random = mi;
             }
             else{
                 random = lo;
             }
         }
-    }
-    else if(data [mi] >= data [hi]){
-        if (data [mi] > data [lo]){
-            if (data [hi] > data [lo]){
+    if (data [mi] >= data [hi] && data [mi] >= data [lo]){
+            if (data [hi] >= data [lo]){
                 random = hi;
             }
             else{
                 random = lo;
             }
         }
-    }
     int holder = data [start];
     data [start] = data [random];
     data [random] = holder;
@@ -149,7 +143,7 @@ public static int helper (int [] data, int start, int end){
      int pivot = partition(data, lo, hi);
      // when a = k, you are done.
      qh(data, pivot + 1, hi);
-     qh(data, lo, pivot);
+     qh(data, lo, pivot - 1);
     }
 
 }
