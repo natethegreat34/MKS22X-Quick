@@ -59,22 +59,18 @@ public static int helper (int [] data, int start, int end){
     start ++;
     // start at start
     while (start < end){
-//         String d = "";
-// for (int x = 0; x < data.length; x ++){
-//     d = d + ", " + data [x];
-// }
-// System.out.println(d);
         if (data [start] > data [o]){
             int holder = data [start];
             data [start] = data [end];
             data [end] = holder;
             end --;
         }
-        else if (data [start] < data [o]){
+        if (data [start] < data [o]){
             start ++;
             }
         else if (data [start] == data [o]){
             int r = (int)(Math.random() * (2));
+            // System.out.println("r" + r);
             if (r == 1){
                 int holder = data [start];
                 data [start] = data [end];
@@ -92,18 +88,14 @@ public static int helper (int [] data, int start, int end){
         data [start] = holder;
         return start;
     }
-    else{
-        int holder = data [o];
-        if (start -1 > o){
-            data [o] = data [start - 1];
-            data [start - 1] = holder;
-            return start - 1;
-        }
-        else{
-            return o;
-        }
+    if (data[o]<data[start]){
+      int holder = data[start-1];
+      data[start-1]=data[o];
+      data[o]= holder;
     }
+    return start-1;
 }
+
  public static int quickselect(int[] data, int k){
      int start = 0;
      int end = data.length - 1;
