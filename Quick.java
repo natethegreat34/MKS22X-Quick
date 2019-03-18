@@ -11,7 +11,7 @@ public class Quick{
 public static int partition (int [] data, int start, int end){
     int hi = end;
     int lo = start;
-    int mi = (end - start + 1)/2;
+    int mi = (end + start)/2;
     int random = 0;
     // start + 1 is where I start
     if (data.length == 1){
