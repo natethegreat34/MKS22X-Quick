@@ -124,7 +124,7 @@ public static int helper (int [] data, int start, int end){
  }
  public static void qh(int []data, int lo, int hi){
      // ends when low = hi
-     if (data.length < 50){
+     if (data.length < 66){
          for (int i = 1; i < data.length; i++ ){
          int current = data[i];
          int place = i;
