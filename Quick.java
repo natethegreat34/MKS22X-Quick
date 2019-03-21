@@ -124,13 +124,26 @@ public static int helper (int [] data, int start, int end){
  }
  public static void qh(int []data, int lo, int hi){
      // ends when low = hi
+     if (data.length < 50){
+         for (int i = 1; i < data.length; i++ ){
+         int current = data[i];
+         int place = i;
+         while(place -1  >= 0 && current < data [place-1]){
+       //what ever is the left most number that current is less than, shift everything between that number and the current one over to ther right.
+         data [place] = data [place - 1];
+         place --;
+       }
+     // then enter the current into the space before the number it is less than.
+             data [place] = current;
+       }
+         // System.out.println("smxhiuxbsbgdjs");
+         return;
+     }
      if (lo < hi){
      int pivot = partition(data, lo, hi);
      // when a = k, you are done.
      qh(data, pivot + 1, hi);
      qh(data, lo, pivot - 1);
     }
-
 }
-
- }
+}
